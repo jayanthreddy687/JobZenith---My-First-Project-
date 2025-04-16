@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | General Form Elements</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/stylesheets/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/stylesheets/adminlte.min.css">
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/home">Recruitment</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/jobopenings">Job Openings</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" id="navbarSupportedContent">
+            <li class="nav-item active">
+                <a class="nav-link" href="/login">
+                    Login
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color: white;">
+    <!-- Content Header (Page header) -->
+
+    <!-- Main content -->
+    <section class="content" style="background-color: white; margin-top: 200px; margin-left: 400px  ;">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-dark">
+              <div class="card-header">
+                <h3 class="card-title">Log in here</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <% if(typeof jay !='undefined' ) { %>
+                <% jay.forEach(function(error) { %>
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%= error.msg %>
+
+                  </div>
+                  <% }) %>
+                    <% } %>
+                      <form method="post" action="/forget">
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label for="exampleInputID">Email</label>
+                            <input type="text" class="form-control" id="name" name="email" placeholder="enter Email"
+                              required>
+                          </div>
+                          <div class="form-group">
+                            <select class="form-control" name="SQuestion">
+                              <option class="hidden" selected disabled>Please select your
+                                Security Question
+                              </option>
+                              <option name="bdate" value="1">What is your Birthdate?</option>
+                              <option name="ph" value="2">What is Your old Phone Number
+                              </option>
+                              <option name="Pname" value="3">What is your Pet Name?</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="`Answer *" name="Sanswer" value="" />
+                          </div>
+                          <div class="form-group">
+                            <button type="submit" class="form-control" id="submit">submit</button>
+                          </div>
+                        </div>
+                      </form>
+            </div>
+          </div>
+          <!-- /.card -->
+
+          <!-- general form elements -->
+
+          <div class="form-group">
+          </div>
+          </form>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.content-wrapper -->
+
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+      </aside>
+      <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+
+  <!-- Page specific script -->
+  <%- include('./partials/chatbot.ejs'); %>
+
+
+</body>
+
+</html>
